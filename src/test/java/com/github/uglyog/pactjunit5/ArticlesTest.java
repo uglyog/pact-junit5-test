@@ -22,7 +22,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
 @ExtendWith(PactConsumerTestExt.class)
-@PactTestFor(providerName = "ArticlesProvider", port = "1234")
+@PactTestFor(providerName = "ArticlesProviderDemo", port = "1234")
 public class ArticlesTest {
   private Map<String, String> headers = MapUtils.putAll(new HashMap<>(), new String[] {
     "Content-Type", "application/json"
