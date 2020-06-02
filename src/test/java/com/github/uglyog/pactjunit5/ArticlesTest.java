@@ -4,7 +4,8 @@ import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
 import au.com.dius.pact.consumer.junit5.PactTestFor;
-import au.com.dius.pact.model.RequestResponsePact;
+import au.com.dius.pact.core.model.RequestResponsePact;
+import au.com.dius.pact.core.model.annotations.Pact;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
@@ -27,7 +28,7 @@ public class ArticlesTest {
     "Content-Type", "application/json"
   });
 
-  @au.com.dius.pact.consumer.Pact(consumer = "ArticlesConsumer")
+  @Pact(consumer = "ArticlesConsumerDemo")
   public RequestResponsePact articles(PactDslWithProvider builder) {
     return builder
       .given("Articles exist")
@@ -51,7 +52,7 @@ public class ArticlesTest {
       .toPact();
   }
 
-  @au.com.dius.pact.consumer.Pact(consumer = "ArticlesConsumer")
+  @Pact(consumer = "ArticlesConsumerDemo")
   public RequestResponsePact articlesDoNotExist(PactDslWithProvider builder) {
     return builder
       .given("No articles exist")
